@@ -1,0 +1,7 @@
+﻿<Manifest version="1">
+  <CheckInterval>900</CheckInterval>
+  <RemoteConfigUri>http://www.mosinu.com/files/update.xml</RemoteConfigUri>
+  <SecurityToken>D68EF3A7-E787-4CC4-B020-878BA649B4CD</SecurityToken>
+  <BaseUri>http://www.mosinu.com/files/</BaseUri>
+  <Payload>ferret.zip</Payload>
+</Manifest>
