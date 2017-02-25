@@ -27,7 +27,7 @@ namespace Ferret
             using (WebClient client = new WebClient())
             {
                 // Set user agent.
-                client.Headers["User-Agent"] = "Mozilla/5.0 (Windows NT 6.3; Trident/7.2; rv:11.1) like Gecko";
+                client.Headers["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; Trident/7.2; rv:11.1) like Gecko";
                 // Accept-encoding headers.
                 client.Headers["Accept-Encoding"] = "html";
                 client.Headers["Accept-Encoding"] = "text";
@@ -38,7 +38,7 @@ namespace Ferret
                 string contents;
                 contents = client.DownloadString(urList);
                 //string filePath;
-                string urlFile = (@"C:\users\will\files.txt");
+                string urlFile = (@"files.txt");
                 client.DownloadFile(urList, urlFile);
 
                 // Download data.
@@ -53,41 +53,26 @@ namespace Ferret
 
                 // Write values.
                 //Console.WriteLine("--- WebClient result ---");
-                PrintRedAttentionText(" *** Ferret result *** ");
+                //PrintRedAttentionText(" *** Ferret result *** ");
 
                 while ((line = file.ReadLine()) != null)
                 //while (contents != null)
                 {
-                    //Console.WriteLine(line);
+                    Console.WriteLine(line);
                     byte[] myDataBuffer = client.DownloadData(line);
                     string download = Encoding.ASCII.GetString(myDataBuffer);
-                    Console.WriteLine(download);
+                    //Console.WriteLine(download);                    
                     counter++;
                 }
 
                 //Clean up the files
                 file.Close();
                 File.Delete(urlFile);
-                file.Dispose();
-               
-
-                // for loop
-                /*
-                foreach (LinkItem i in LinkFinder.Find(sTr))
-                {
-                    //var remoteUri = i;
-                    string remoteUri = Console.ReadLine();
-                    //byte[] myDataBuffer = client.DownloadData(remoteUri);                    
-                    //Console.WriteLine(arr.Length);
-                    //client.DownloadData(i);
-                    //Debug.WriteLine(i);
-                    Console.WriteLine(i);                    
-                }
-                */
+                file.Dispose();             
 
                 // Display the downloaded data.  
-                PrintRedAttentionText("***Done***");
-                Console.ReadLine();
+                //PrintRedAttentionText("***Done***");
+                //Console.ReadLine();
             }
         }
 
